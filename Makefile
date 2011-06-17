@@ -228,6 +228,9 @@ omap3530beagle_config :    unconfig
 igep00x0_config :    unconfig
 	@$(MKCONFIG) $(@:_config=) arm omap3 igep00x0
 	
+omap3devkit8000_config :    unconfig
+	@$(MKCONFIG) $(@:_config=) arm omap3 omap3devkit8000
+
 #########################################################################
 ## OMAP4 (ARM-CortexA9) Systems
 #########################################################################
