@@ -31,12 +31,13 @@
  */
 
 #include <common.h>
+#include <i2c.h>
 #include <part.h>
 #include <fat.h>
 #include <asm/arch/mem.h>
 
 const char version_string[] =
-	"Texas Instruments X-Loader 1.5.0 (" __DATE__ " - " __TIME__ ")";
+	"Texas Instruments X-Loader 1.5.1 (" __DATE__ " - " __TIME__ ")";
 
 int print_info(void)
 {
