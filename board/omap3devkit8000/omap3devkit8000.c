@@ -118,8 +118,8 @@ u32 get_sysboot_value(void)
 u32 get_mem_type(void)
 {
 	
-	if (beagle_revision() == REVISION_XM)
-		return GPMC_NONE;
+	/*if (beagle_revision() == REVISION_XM)
+		return GPMC_NONE;*/
 
 	u32   mem_type = get_sysboot_value();
 	switch (mem_type) {
@@ -202,6 +202,7 @@ u32 cpu_is_3410(void)
 	}
 }
 
+#define SYSLED (186)
 /******************************************
  * beagle_identify
  * Description: Detect if we are running on a Beagle revision Ax/Bx,
@@ -216,9 +217,12 @@ u32 cpu_is_3410(void)
  ******************************************/
 int beagle_revision(void)
 {
-	int rev;
+	int rev=0;
 
-	omap_request_gpio(171);
+	omap_request_gpio(SYSLED);
+	omap_set_gpio_direction(SYSLED, 0);
+        omap_set_gpio_dataout(SYSLED, 0);
+/*	omap_request_gpio(171);
 	omap_request_gpio(172);
 	omap_request_gpio(173);
 	omap_set_gpio_direction(171, 1);
@@ -228,7 +232,7 @@ int beagle_revision(void)
 	rev = omap_get_gpio_datain(173) << 2 |
 		omap_get_gpio_datain(172) << 1 |
 		omap_get_gpio_datain(171);
-
+*/
 	/* Default newer board revisions to XM */
 	switch(rev) {
 	case REVISION_AXBX:
@@ -240,9 +244,11 @@ int beagle_revision(void)
 		rev = REVISION_XM;
 	}
 
-	omap_free_gpio(171);
+/*	omap_free_gpio(171);
 	omap_free_gpio(172);
-	omap_free_gpio(173);
+	omap_free_gpio(173);*/
+        omap_set_gpio_dataout(SYSLED, 1);
+	omap_free_gpio(SYSLED);
 
 	return rev;
 }
