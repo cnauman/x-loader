@@ -96,13 +96,13 @@
 #define CFG_NS16550_SERIAL
 #define CFG_NS16550_REG_SIZE	-4
 #define CFG_NS16550_CLK		48000000
-#define CFG_NS16550_COM3	OMAP34XX_UART3
+#define CFG_NS16550_COM1	OMAP34XX_UART1
 
 /*
  * select serial console configuration
  */
-#define CONFIG_SERIAL1		3	/* use UART3 */
-#define CONFIG_CONS_INDEX	3
+#define CONFIG_SERIAL1		1	/* use UART3 */
+#define CONFIG_CONS_INDEX	1
 
 #define CONFIG_BAUDRATE		115200
 #define CFG_PBSIZE		256
