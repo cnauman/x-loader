@@ -709,7 +709,7 @@ int misc_init_r(void)
 			printf("Beagle Rev C4\n");
 		break;
 	case REVISION_XM:
-		printf("Beagle xM\n");
+//		printf("Beagle xM\n");
 		break;
 	default:
 		printf("Beagle unknown 0x%02x\n", rev);

@@ -67,7 +67,7 @@ init_fnc_t *init_sequence[] = {
 #ifdef CFG_NS16550_SERIAL
  	serial_init,		/* serial communications setup */
 #endif
-	print_info,
+//	print_info,
   	nand_init,		/* board specific nand init */
 #ifdef CONFIG_MMC
 #ifdef CONFIG_DRIVER_OMAP34XX_I2C
@@ -124,7 +124,7 @@ void start_armboot (void)
 		} else if (get_mem_type() == GPMC_NAND){
 #ifdef CFG_NAND_K9F1G08R0A
 #ifdef CFG_PRINTF
-       			printf("Loading u-boot.bin from nand\n");
+//       			printf("Loading u-boot.bin from nand\n");
 #endif
         		for (i = NAND_UBOOT_START; i < NAND_UBOOT_END; i+= NAND_BLOCK_SIZE){
         			if (!nand_read_block(buf, i))

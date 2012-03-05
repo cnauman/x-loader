@@ -43,7 +43,7 @@
 //#define CONFIG_BEAGLE_REV2	1
 
 /* Enable the below macro if MMC boot support is required */
-//#define CONFIG_MMC	1
+#define CONFIG_MMC	1
 #if defined(CONFIG_MMC)
 	#define CFG_CMD_MMC		1
 	#define CFG_CMD_FAT		1
